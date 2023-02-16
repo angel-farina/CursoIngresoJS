@@ -4,13 +4,14 @@ function mostrar()
 {
 	var estacion;
 	var destino;
+	var mensaje;
 	
-	estacion=txtIdEstacion.value;
-	destino=txtIdDestino.value;
+	estacion = txtIdEstacion.value;
+	destino = txtIdDestino.value;
 
 	switch(estacion+"|"+destino){
 		default:
-			alert('✅ Se viaja.');
+			mensaje = '✅ Se viaja.';
 			break;
 		case 'Invierno|Cataratas':
 		case 'Invierno|Mar del plata':
@@ -18,6 +19,7 @@ function mostrar()
 		case 'Verano|Bariloche':
 		case 'Verano|Cordoba':
 		case 'Primavera|Bariloche':
-			alert('⛔️ No se viaja.');
+			mensaje = '⛔️ No se viaja.';
 	}
+	alert(mensaje);
 }

@@ -3,18 +3,20 @@
 function mostrar()
 {
 	var destino;
+	var mensaje;
 	
-	destino=txtIdDestino.value;
+	destino = txtIdDestino.value;
 
 	switch(true){
 		default:
 			void(0);
 		break;
 		case ["Bariloche", "Ushuaia"].includes(destino):
-			alert(`🥶 En ${destino} hace frio.`);
+			mensaje = `🥶 En ${destino} hace frio.`;
 		break;
 		case ["Cataratas", "Mar del plata"].includes(destino):
-			alert(`🔥 En ${destino} hace calor.`);
+			mensaje = `🔥 En ${destino} hace calor.`;
 		break;
 	}
+	alert(mensaje);
 }
