@@ -2,21 +2,26 @@
 
 function mostrar()
 {
-	var num;
+	var numero;
 	var nummax;
 	var nummin;
+	var continuar;
 	
-	nummax=Math.max();
-	nummin=Math.min();
+	numero;
+	nummax = Infinity;
+	nummin = -Infinity;
+	continuar = true;
+	//Math.max();
+	//Math.min();
 
-	while(confirm('Quiere ingresar mas numeros?')){
-		num=parseInt(prompt(''));
-
-		if (num=nummax){
-
-		}
+	while(continuar){
+		numero = numero + parseInt(prompt(''));
+		continuar = confirm('Quiere ingresar mas numeros?');
 	}
 
 	txtIdMaximo.value=nummax;
-	txtIdMinimmo.value=numeroMinimo;
+	txtIdMinimmo.value=nummin;
+
+	console.log(`el numero maximo ingresado fue ${Math.max(nummax)}`
+	`el numero minimo ingresado fue ${Math.min(nummin)}`)
 }
