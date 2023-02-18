@@ -1,27 +1,45 @@
 // Angel Farina.
-
+// version con flag y isNaN
 function mostrar()
 {
-	var numero;
+	var ingreso;
 	var nummax;
 	var nummin;
+	//var contador;
 	var continuar;
-	
-	numero;
-	nummax = Infinity;
-	nummin = -Infinity;
+	var flag; //para saber por unica vez si es la primera vuelta en el bucle
+	// y asi poder asignar los primeros valores a maximo y minimo.
+
+	//contador = 0;
 	continuar = true;
-	//Math.max();
-	//Math.min();
+	flag = true;
+
+	//while(isNaN(ingreso) == true)
 
 	while(continuar){
-		numero = numero + parseInt(prompt(''));
-		continuar = confirm('Quiere ingresar mas numeros?');
+		//contador++;
+		ingreso = parseInt(prompt('Ingrese un numero'));
+		console.log(ingreso);
+		
+		while(isNaN(ingreso)){
+            ingreso = parseInt(prompt('El valor ingresado no es un número. Ingrese un número válido:'));
+        }
+
+		if(/*contador == 1*/flag){
+			nummax = ingreso;
+			nummin = ingreso;
+			flag = false;
+		}else{
+			if(ingreso > nummax){
+				nummax = ingreso;
+			}else{
+				if(ingreso < nummin){
+					nummin = ingreso;
+				}
+			}		
+		}
+		continuar = confirm('quiere ingresar mas numeros?');
 	}
-
 	txtIdMaximo.value=nummax;
-	txtIdMinimmo.value=nummin;
-
-	console.log(`el numero maximo ingresado fue ${Math.max(nummax)}`
-	`el numero minimo ingresado fue ${Math.min(nummin)}`)
+	txtIdMinimo.value=nummin;
 }
