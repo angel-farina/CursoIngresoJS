@@ -4,16 +4,17 @@ function mostrar()
 {
 	var contador;
 	var acumulador;
-	var respuesta;
+	var continuar;
 	
-	contador=0;
-	acumulador=0;
-	respuesta='si';
+	contador = 0;
+	acumulador = 0;
+	continuar = true;
 
-	while (respuesta=='si'){
+	while (continuar == true){
 		contador++;
-		acumulador=acumulador+parseInt(prompt('Ingrese un número'));
-		respuesta=prompt('sumar otro numero?');
+		acumulador = acumulador + parseInt(prompt('Ingrese un número'));
+
+		continuar = confirm('quiere ingresar otro numero?');
 	}
 
 	txtIdSuma.value=acumulador;
