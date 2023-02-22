@@ -12,7 +12,7 @@ function mostrar()
 	while (confirm('Quiere ingresar mas numeros?')){
 		num = parseInt(prompt(''));
 
-		if (num >= 0){
+		if (num > 0){
 			positivo+=num;
 		}else {
 			negativo*=num;

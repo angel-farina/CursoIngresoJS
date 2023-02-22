@@ -7,8 +7,8 @@ function mostrar()
 	var nummin;
 	//var contador;
 	var continuar;
-	var flag; //para saber por unica vez si es la primera vuelta en el bucle
-	// y asi poder asignar los primeros valores a maximo y minimo.
+	var flag; /*para saber por unica vez si es la primera vuelta en el bucle 
+	y asi poder asignar los primeros valores a maximo y minimo.*/
 
 	//contador = 0;
 	continuar = true;

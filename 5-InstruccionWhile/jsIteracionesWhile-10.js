@@ -10,28 +10,69 @@ Al presionar el botón pedir números hasta que el usuario quiera, mostrar:
 
 function mostrar()
 {
-	//declarar contadores y variables 
 	var numIn;
 	var continuar;
-	var negativos;
-	var positivos;
-	var positivosCant;
-	var negativosCant;
+	var negSum;
+	var posSum;
+	var posCant;
+	var negCant;
 	var cerosCant;
-	var pares;
-	var contador;
+	var parCant;
+	var posProm;
+	var negProm;
+	var difPosNeg;
 
+	posCant = 0;
+	negCant = 0;
+	cerosCant = 0; 
+	parCant = 0;
+	negSum = 0;
+	posSum = 0;
+	posProm = 0;
+	negProm = 0;
+	difPosNeg = 0
 	continuar = true;
 
-	while(continuar)
-	{
-		contador++;
+	while(continuar){
 		numIn = parseInt(prompt('ingrese un numero'));
 
-		if(numIn)
+		while(isNaN(numIn)){
+            numIn = parseInt(prompt('El valor ingresado no es un número. Ingrese un número válido:'));
+        }
 		
+		if(numIn < 0){
+			negCant++;
+			negSum += numIn;
+			console.log(`numIn: ${numIn}, posSum: ${posSum}, negSum: ${negSum}`);
+		}else{
+			if(numIn > 0){
+				posCant++;
+				posSum += numIn;
+				console.log(`numIn: ${numIn}, posSum: ${posSum}, negSum: ${negSum}`);
+			}else{
+				cerosCant++;
+				console.log(`numIn: ${numIn}, posSum: ${posSum}, negSum: ${negSum}`);
+			}
+		}
+
+		if(numIn % 2 == 0){
+			parCant++;
+		}
 		continuar = confirm('quiere continuar?');
 	}
 
-	document.write();
+	posProm = posSum / posCant;
+	negProm = negSum / negCant;
+	difPosNeg = posSum + negSum;
+
+	console.log(`
+	1-Suma de los negativos: ${negSum}
+	2-Suma de los positivos: ${posSum}
+	3-Cantidad de positivos: ${posCant}
+	4-Cantidad de negativos: ${negCant}
+	5-Cantidad de ceros: ${cerosCant} 
+	6-Cantidad de números pares: ${parCant}
+	7-Promedio de positivos: ${posProm.toFixed(2)}
+	8-Promedios de negativos: ${negProm.toFixed(2)}
+	9-Diferencia entre positivos y negativos: ${difPosNeg}`);
 }
