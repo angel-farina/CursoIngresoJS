@@ -65,6 +65,17 @@ function mostrar()
 	negProm = negSum / negCant;
 	difPosNeg = posSum + negSum;
 
+	document.write(`
+	1-Suma de los negativos: ${negSum}
+	2-Suma de los positivos: ${posSum}
+	3-Cantidad de positivos: ${posCant}
+	4-Cantidad de negativos: ${negCant}
+	5-Cantidad de ceros: ${cerosCant} 
+	6-Cantidad de números pares: ${parCant}
+	7-Promedio de positivos: ${posProm.toFixed(2)}
+	8-Promedios de negativos: ${negProm.toFixed(2)}
+	9-Diferencia entre positivos y negativos: ${difPosNeg}`);
+
 	console.log(`
 	1-Suma de los negativos: ${negSum}
 	2-Suma de los positivos: ${posSum}
