@@ -1,4 +1,4 @@
-function MiMachete() 
+function cheatsheet() 
 {
     /*
     VARIABLES

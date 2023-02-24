@@ -1,9 +1,12 @@
 /*
-A)Nos ingresan una cantidad indeterminada de estadías de  vacaciones,
+A)Nos ingresan una cantidad 
+indeterminada de estadías de  
+vacaciones,
 validando los datos ingresados:
 
 nombre del titular ,
-lugar ( “Puerto Madryn”, “Villa Gessel” o “Córdoba”),
+lugar ( “Puerto Madryn”, 
+    “Villa Gessel” o “Córdoba”),
 temporada(“alta”, “baja”),
 cantidad de días que durará el viaje.
 importe del viaje
@@ -39,3 +42,5 @@ n- se creativo en este
 o- uno facil 
 p- uno dificil
  */
+
+// Angel Farina
