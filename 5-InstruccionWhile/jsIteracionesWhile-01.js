@@ -6,7 +6,6 @@ function mostrar() {
     var lugarViaje;
     var temporada;
     var diasCant;
-    var importeViaje;
     var altura;
     var peso;
     var sexo;
@@ -35,10 +34,32 @@ function mostrar() {
 	var lugarMasDias;
 	var pesoMax;
 	var pesoMin;
-	var pesoTrue;
+	var pesoInicial;
 	var nombrePesado;
 	var nombreLiviano;
-	var nombreLugarMasImporte;
+	var lugarMasImporte;
+	var mujerInicial;
+	var mujerAlta;
+	var mujerBaja;
+	var nombreMujerAlta;
+	var nombreMujerBaja;
+	var contadorMp;
+	var contadorTarjeta;
+	var contadorEfectivo;
+	var formaPagoMasUtilizada;
+	var contadorMaxPago;
+	var nombreMaxTemporada;
+	var lugarMaxPasajeros;
+	var lugarMasPasajerosNombre;
+	var equipajeSi;
+	var equipajeNo;
+	var porcentajeEquipajeMano;
+	var sexoF;
+	var sexoM;
+	var sexoNb;
+	var porcentajeSexoF;
+	var porcentajeSexoM;
+	var porcentajeSexoNb;
 
 	cantidadPersonas = 0;
 	pesoTotalGessel = 0;
@@ -61,18 +82,41 @@ function mostrar() {
 	lugarMasDias = "";
 	pesoMax = 0;
 	pesoMin = 0;
-	pesoTrue = true;
+	pesoInicial = true;
 	nombrePesado = "";
 	nombreLiviano = "";
 	maxImporte = 0;
-	nombreLugarMasImporte = "";
+	lugarMasImporte = "";
+	mujerInicial = true;
+	mujerAlta = 0;
+	mujerBaja = 0;
+	nombreMujerAlta = "";
+	nombreMujerBaja = "";
+	contadorMp = 0;
+	contadorTarjeta = 0;
+	contadorEfectivo = 0;
+	formaPagoMasUtilizada = "";
+	contadorMaxPago = 0;
+	nombreMaxTemporada = "";
+	lugarMaxPasajeros = 0;
+	lugarMasPasajerosNombre = "";
+	equipajeSi = 0;
+	equipajeNo = 0;
+	porcentajeEquipajeMano = 0;
+	sexoF = 0;
+	sexoM = 0;
+	sexoNb = 0;
+	porcentajeSexoF = 0;
+	porcentajeSexoM = 0;
+	porcentajeSexoNb = 0;
+
 
     continuar = true;
 
     while (continuar) {
-        nombreTitular = prompt('Ingrese nombre del nombreTitular');
+        nombreTitular = prompt('Ingrese nombre del Titular');
         while (nombreTitular == "") {
-            nombreTitular = prompt('ERROR, ingrese nombre del nombreTitular');
+            nombreTitular = prompt('ERROR, ingrese nombre del Titular');
         }
         lugarViaje = prompt('Ingrese su destino: Puerto Madryn, Villa Gessel o Cordoba');
 		lugarViaje = lugarViaje.toLowerCase();
@@ -86,7 +130,7 @@ function mostrar() {
 			temporada = prompt('ERROR, ingrese temporada: Alta o Baja');
 		}
 
-		diasCant = parseInt(prompt('Ingrese cantidad de diasCant'));
+		diasCant = parseInt(prompt('Ingrese cantidad de dias'));
 		while (isNaN(diasCant) || diasCant < 0) {
 			diasCant = parseInt(prompt('ERROR, ingrese cantidad de diasCant'));
 		}
@@ -120,6 +164,7 @@ function mostrar() {
 
 		cantidadPersonas++;
 
+		//datos segun el lugar
 		switch (lugarViaje) {
 			case "villa gessel":
 				gessel++;
@@ -128,15 +173,17 @@ function mostrar() {
 				importeGessel += costoGessel;
 				break;
 			case "puerto madryn":
+				madryn++;
 				diasMadryn += diasCant;
 				importeMadryn += costoMadryn;
 				break;
 			case "cordoba":
+				cordoba++;
 				diasCordoba += diasCant;
 				importeCordoba += costoCordoba;
 				break;
 		}
-
+		//lugar con mas dias
 		if (diasGessel > diasMax) {
 			diasMax = diasGessel;
 			lugarMasDias = "Villa Gessel";
@@ -151,21 +198,21 @@ function mostrar() {
 			diasMax = diasCordoba;
 			lugarMasDias = "Cordoba";
 		}
-
+		//temporada
 		if (temporada == "alta") {
 			cantidadTemporadaAlta++;
 		} else {
 			cantidadTemporadaBaja++;
 		}
-
-		if (pesoTrue == true) {
-			pesoTrue = false
+		//nombre mas pesado y mas liviano
+		if (pesoInicial == true) {
+			pesoInicial = false
 			pesoMax = peso;
 			pesoMin = peso;
 		} else {
 			if (peso > pesoMax) {
 				pesoMax = peso;
-				nombrePesado = nombreTitular
+				nombrePesado = nombreTitular;
 			} else {
 				if (peso < pesoMin) {
 					pesoMin = peso;
@@ -173,68 +220,178 @@ function mostrar() {
 				}
 			}
 		}
-
+		//lugar con mas importe
 		if (importeGessel > maxImporte) {
 			maxImporte = importeGessel;
-			nombreLugarMasImporte = "Villa Gessel";
+			lugarMasImporte = "Villa Gessel";
 		}
 
 		if (importeMadryn > maxImporte) {
 			maxImporte = importeMadryn;
-			nombreLugarMasImporte = "Puerto Madryn";
+			lugarMasImporte = "Puerto Madryn";
 		}
 		
 		if (importeCordoba > maxImporte) {
 			maxImporte = importeCordoba;
-			nombreLugarMasImporte = "Cordoba";
+			lugarMasImporte = "Cordoba";
+		} 
+
+		//nombre mujer mas alta
+		if (sexo == "f") {
+			if (mujerInicial == true) {
+				mujerInicial = false
+				mujerAlta = altura;
+				mujerBaja = altura;
+			} else {
+				if (altura > mujerAlta) {
+					mujerAlta = altura;
+					nombreMujerAlta = nombreTitular;
+				} else {
+					if (altura < mujerBaja) {
+						mujerBaja = altura;
+						nombreMujerBaja =  nombreTitular;
+					}
+				}
+			}
 		}
 
-		if (temporada == "alta") {
-			cantidadTemporadaAlta++;
+		//forma de pago mas utilizada
+		switch (pago) {
+			case "mp":
+				contadorMp++;
+				break;
+			case "efectivo":
+				contadorEfectivo++;
+				break;
+			case "tarjeta":
+				contadorTarjeta++;
+				break;
+		}
+
+		if (contadorMp > contadorMaxPago) {
+			contadorMaxPago = contadorMp;
+			formaPagoMasUtilizada = "mp";
+		}
+
+		if (contadorTarjeta > contadorMaxPago) {
+			contadorMaxPago = contadorTarjeta;
+			formaPagoMasUtilizada = "tarjeta";
+		}
+		
+		if (contadorEfectivo > contadorMaxPago) {
+			contadorMaxPago = contadorEfectivo;
+			formaPagoMasUtilizada = "efectivo";
+		} 
+
+		//temporada que se viajo mas
+		if (cantidadTemporadaAlta > cantidadTemporadaBaja) {
+			nombreMaxTemporada = "Alta";
 		} else {
-			cantidadTemporadaBaja++;
+			nombreMaxTemporada = "Baja";
 		}
 
+		//Lugar con mas pasajeros
+		if (gessel > lugarMaxPasajeros) {
+			lugarMasPasajerosNombre = "Villa Gessel";
+		}
+
+		if (madryn > lugarMaxPasajeros) {
+			lugarMasPasajerosNombre = "Puerto Madryn";
+		}
+
+		if (cordoba > lugarMaxPasajeros) {
+			lugarMasPasajerosNombre = "Cordoba";
+		}
+
+		//Porcentaje con equipaje de mano
+		switch (equipaje) {
+			case "si":
+				equipajeSi++;
+				break;
+			case "no":
+				equipajeNo++;
+				break;
+		}
+
+		//Porcentaje en cada sexo
+		switch (sexo) {
+			case "f":
+				sexoF++;
+				break;
+			case "m":
+				sexoM++;
+				break;
+			case "nb":
+				sexoNb++;
+				break;
+		}
+
+		//datos por cada ingreso
 		console.log(`
-		nombreTitular: ${nombreTitular}
-		lugarViaje: ${lugarViaje}
-		temporada: ${temporada}
-		diasCant: ${diasCant}
-		altura: ${altura}
-		peso: ${peso}
-		sexo: ${sexo}
-		equipaje: ${equipaje}
-		pago: ${pago}
-		cantidad de personas: ${cantidadPersonas}
-		cantidad a gessel: ${gessel}
-		cantidad personas temporada alta: ${cantidadTemporadaAlta}
-		cantidad personas temporada baja: ${cantidadTemporadaBaja}
-		peso de personas total gessel: ${pesoTotalGessel}`)
+		Datos por ingreso:
+		Nombre del Titular: ${nombreTitular}
+		Lugar de Viaje: ${lugarViaje}
+		Temporada: ${temporada}
+		Cantidad de dias: ${diasCant}
+		Altura: ${altura}
+		Peso: ${peso}
+		Sexo: ${sexo}
+		Equipaje: ${equipaje}
+		Metodo de pago: ${pago}
+		Cantidad de personas ingresadas: ${cantidadPersonas}
+		`)
 
         continuar = confirm('Quiere ingresar otro Pasajero?');
     }
 
 	sumaImportes = importeGessel + importeMadryn + importeCordoba;
+	porcentajeEquipajeMano = equipajeSi * (cantidadPersonas / 100);
+	porcentajeSexoF = sexoF * (cantidadPersonas / 100);
+	porcentajeSexoM = sexoM * (cantidadPersonas / 100);
+	porcentajeSexoNb = sexoNb * (cantidadPersonas / 100);
 
 	console.log(`
-	NombreTitular: ${nombreTitular}
-	LugarViaje: ${lugarViaje}
-	Temporada: ${temporada}
-	DiasCant: ${diasCant}
-	Altura: ${altura}
-	Peso: ${peso}
-	Sexo: ${sexo}
-	Equipaje: ${equipaje}
-	Pago: ${pago}
-	Cantidad de personas: ${cantidadPersonas}
-	Cantidad a gessel: ${gessel}
+	Datos:
+	Cantidad de personas ingresadas: ${cantidadPersonas}
+	Cantidad de personas a Villa Gessel: ${gessel}
+
+	1a:
 	Cantidad personas temporada alta: ${cantidadTemporadaAlta}
 	Cantidad personas temporada baja: ${cantidadTemporadaBaja}
+
+	1b:
 	Peso de personas total gessel: ${pesoTotalGessel}
-	Suma Importes: ${sumaImportes}
+
+	1c:
 	Lugar con mas dias acumulados: ${lugarMasDias}
+
+	1d:
+	Suma Importes: ${sumaImportes}
+	
+	2e:
 	Nombre persona mas pesada: ${nombrePesado}
-	NOmbre persona mas liviana: ${nombreLiviano}
+	Nombre persona mas liviana: ${nombreLiviano}
+
+	2f:
+	Lugar con mas importe: ${lugarMasImporte}
+
+	2g:
+	Nombre mujer mas alta: ${nombreMujerAlta}
+
+	3h:
+	Forma de pago mas utilizada: ${formaPagoMasUtilizada}
+
+	3i:
+	Temporada que se viajo mas: ${nombreMaxTemporada}
+
+	3j:
+	Lugar con mas pasajeros: ${lugarMasPasajerosNombre}
+
+	4k:
+	Porcentaje con equipaje de mano: ${porcentajeEquipajeMano.toFixed(2)}
+
+	4l:
+	Porcentaje en cada sexo: F: ${porcentajeSexoF}, M: ${porcentajeSexoM}, Nb: ${porcentajeSexoNb}
 	`)
 }
 

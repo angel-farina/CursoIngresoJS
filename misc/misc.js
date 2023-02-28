@@ -1,5 +1,14 @@
 function cheatsheet() 
 {
+    //.. crear variables
+    //.. pedir datos
+    //.. console.log()
+
+    //resolver
+
+    //informar
+    //...
+
     /*
     VARIABLES
         - Crear variables let/var 
@@ -153,6 +162,15 @@ function cheatsheet()
 
         
     MISC
+
+    ..PARES
+    numero % 2 == 0
+
+    if(numero % 2 == 0){
+			PAR
+		} else {
+            IMPAR
+        }
 
     Para convertir la primer letra en mayuscula.
     Hace mayus la primera y le concatena un recorte de la cadena 
