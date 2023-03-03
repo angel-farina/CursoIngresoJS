@@ -1,12 +1,4 @@
 /*
-//.................. DECLARACION DE VARIABLES.........................................................
-
-//DECLARO VARIABLES
-var VARIABLE;
-
-VARIABLE = ALGO;
-
-//.....................................................................................................
 
 //.................. BUCLE PRINCIPAL PARA PEDIR DATOS MIENTRAS SE ACEPTE EL CONFIRM....................
 
@@ -17,11 +9,10 @@ continuar = true;
 
     while (continuar == true) 
 	{
-        //PEDIDO DE DATOS
-
 
     
         continuar = confirm("quiere continuar?");
+        //FIN BUCLE PRINCIPAL
     }
 
 //......................................................................................................
