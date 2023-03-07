@@ -6,7 +6,7 @@ function mostrar()
 	var mensaje;
 	
 	edad=parseInt(txtIdEdad.value);
-	mensaje='es adolescente'
+	mensaje='es adolescente';
 	
 	if (edad>12&&edad<18){
 		alert(mensaje);
